@@ -1,9 +1,10 @@
-
+import Header from "./components/Header"
 function App() {
 return (
-  <div className="text-5xl text-red-600">
-    Youtube
-  </div>
+  <>
+  <Header/>
+  </>
+
 )
 }
 
