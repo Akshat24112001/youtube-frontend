@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import axiosInstance from "../utiles/axiosInstance";
 
 // Upload video page
-export default function UplaodVideo() {
+export default function UploadVideo() {
   // getting current user
   const user = useSelector((store) => store.user.user);
   // initializing navigation

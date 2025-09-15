@@ -54,7 +54,6 @@ export default function SignUp() {
       // sending request for adding new user to the database
       const res = await axiosInstance.post("/user/register", newUser);
       // saving the user to the redux store
-      dispatch(addUser(res.data));
       // setting all values to initial state
       setEmail("");
       setUsername("");
@@ -63,7 +62,7 @@ export default function SignUp() {
 
       toast.success("User registered successfully");
       // navigating to the homepage
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       // handling the error
       setError(error.response?.data.message || "Something went wrong");

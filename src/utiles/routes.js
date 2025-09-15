@@ -6,5 +6,5 @@ export const Login = lazy(() => import("../pages/Login.jsx"));
 export const SignUp = lazy(() => import("../pages/SignUp.jsx"));
 export const Video = lazy(() => import("../pages/Video.jsx"));
 export const CreateChannel = lazy(() => import("../pages/CreateChannel.jsx"));
-export const UplaodVideo = lazy(() => import("../pages/UplaodVideo.jsx"));
+export const UploadVideo = lazy(() => import("../pages/UploadVideo.jsx"));
 export const Error = lazy(() => import("../pages/Error.jsx"));

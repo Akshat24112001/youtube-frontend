@@ -135,7 +135,7 @@ export default function Header({ sidebar }) {
             onClick={() => navigate("/")}
           >
             <FaYoutube className="text-blue-500 text-3xl" />
-            <span className="text-xl font-bold tracking-wide">VidSphere</span>
+            <span className="text-xl font-bold tracking-wide">PlayNest</span>
           </div>
         </div>
 

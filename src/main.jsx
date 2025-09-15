@@ -32,7 +32,7 @@ import {
   SignUp,
   Video,
   CreateChannel,
-  UplaodVideo,
+  UploadVideo,
   Error,
 } from "./utiles/routes.js";
 
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/upload",
-        element: <UplaodVideo />,
+        element: <UploadVideo />,
       },
     ],
   },
