@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import axiosInstance from "../utiles/axiosInstance";
-import { addUser } from "../utiles/userSlice";
+import { addUser, removeUser } from "../utiles/userSlice";
 
 // create channel page
 export default function CreateChannel() {
@@ -62,7 +62,6 @@ export default function CreateChannel() {
         },
       });
       setUploadProgress("Channel Created Successfully");
-
       setUploadProgress(null);
       setStatusMessage("Created Channel Successfully");
       setChannelName("");
@@ -70,10 +69,15 @@ export default function CreateChannel() {
       setChannelAvatar(null);
       setChannelBanner(null);
       // updating the user in the redux store too
-      const { data } = await axiosInstance.get("/user");
-      dispatch(addUser(data.user));
-      // navigating to the created channel
-      navigate(`/channel/${res.data.channel._id}`);
+      const updatedUser = {
+      ...user,
+      isChannelCreated: true,
+      channel: res.data.channel._id,
+      channelAvatar: res.data.channel.channelAvatar
+    };
+
+dispatch(addUser(updatedUser)); // directly update store
+navigate(`/channel/${res.data.channel._id}`);
     } catch (error) {
       // in case there is an error while creating the channel
       const errorMsg =
