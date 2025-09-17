@@ -17,6 +17,9 @@ import formatDuration from "../utiles/formatDuration.js";
 import formatViews from "../utiles/formatViews.js";
 import defaultAvatar from "../assets/default-avatar.jpg";
 import NotFoundImage from "../assets/NotFound.avif";
+import EditChannel from "../components/EditChannel.jsx";
+
+import { MdEdit } from "react-icons/md";
 
 export default function YourChannel() {
   // getting channel id from the url
@@ -35,6 +38,8 @@ export default function YourChannel() {
 
   const [showEdit, setShowEdit] = useState(false); // showing the edit dialog box
   const [editingVideo, setEditingVideo] = useState(null); // taget id of video details to be editted
+
+  const [showEditChannel, setShowEditChannel] = useState(false);// state for showing edit channel details
 
   const dropdownRef = useRef(null); // reference for dropdown
 
@@ -152,40 +157,89 @@ export default function YourChannel() {
     <>
       {/* Background banner */}
       <div
-        className="relative h-64 border-b-2 shadow-xl"
-        style={{
-          backgroundImage: `url(${channel.channelBanner || NotFoundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+  className="relative h-64 border-b-2 shadow-xl"
+  style={{
+    backgroundImage: `url(${channel.channelBanner || NotFoundImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+
+  {/* Wrapper for avatar + info */}
+  <div className="absolute -bottom-40 sm:-bottom-20 left-0 w-full flex flex-col sm:flex-row sm:items-end sm:justify-between px-6">
+    {/* Avatar */}
+    <div className="flex justify-center sm:justify-start w-full sm:w-auto">
+      <img
+        src={channel.channelAvatar || defaultAvatar}
+        alt="Profile pic"
+        className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover object-center border-4 border-white shadow-xl"
+      />
+    </div>
+
+    {/* Channel info */}
+    <div className="mt-4 sm:mt-0 mb-4 sm:mb-0 sm:ml-6 flex-1 text-center sm:text-left">
+      <h2 className="text-xl sm:text-2xl font-bold">{channel.channelName}</h2>
+      <p className="text-gray-600 italic line-clamp-2">{channel.description}</p>
+      <p className="text-sm text-gray-500 italic">{message}</p>
+    </div>
+
+   
+    {/* Edit button only for owner */}
+{currentUser?.channel === channel?._id && (
+  <>
+    {/* Mobile button - fixed under banner on right */}
+    <button
+      onClick={() => setShowEditChannel(true)}
+      className="absolute bottom-24 right-3 rounded-full p-2 text-lg text-black hover:bg-gray-300 sm:hidden"
+    >
+      <MdEdit />
+    </button>
+
+    {/* Desktop button - stays on far right with info */}
+    <div className="mt-4 sm:mb-6 hidden sm:flex justify-end w-full sm:w-auto">
+      <button
+        onClick={() => setShowEditChannel(true)}
+        className="rounded-full p-3 text-lg text-black hover:bg-gray-300"
       >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <MdEdit />
+      </button>
+    </div>
+  </>
+)}
 
-        {/* channel Avatar */}
-        <img
-          src={channel.channelAvatar || defaultAvatar}
-          alt="Profile pic"
-          className="w-32 h-32 rounded-full object-cover object-center absolute -bottom-14 left-6 border-4 border-white shadow-xl"
-        />
+  </div>
+</div>
 
-        {/* Channel Info */}
-        <div className="absolute -bottom-26 left-44 pr-6 flex flex-col max-w-xl">
-          <h2 className="text-2xl font-bold">{channel.channelName}</h2>
-          <p className="text-gray-600 italic line-clamp-2">
-            {channel.description}
-          </p>
-          <p className="text-sm text-gray-500 italic">{message}</p>
+      {/* Edit Channel dialog box */}
+      {showEditChannel && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+          onClick={() => setShowEditChannel(false)}
+        >
+          <div
+            className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <EditChannel
+              channel={channel}
+              onClose={() => setShowEditChannel(false)}
+              onUpdate={(updated) => {
+                setChannel(updated); // update local channel info
+                setShowEditChannel(false);
+              }}
+            />
+          </div>
         </div>
-      </div>
-
+      )}
       {/* Videos Section */}
       <section
         className="grid gap-6
               grid-cols-1
               sm:grid-cols-2
               lg:grid-cols-3
-              xl:grid-cols-4 mt-32 "
+              xl:grid-cols-4 mt-36 sm:mt-32"
       >
         {/* conditional render of videos in the channel */}
         {channel?.videos.map((video) => (
@@ -213,7 +267,7 @@ export default function YourChannel() {
             {/* Video Info */}
             <div className="flex justify-between items-center">
               <div className="flex flex-col gap-1 mt-3 px-1">
-                <h2 className="font-semibold truncate text-sm sm:text-base line-clamp-2">
+                <h2 className="font-semibold text-sm sm:text-base line-clamp-2 overflow-hidden text-ellipsis break-words">
                   {video?.title}
                 </h2>
                 <p className="text-gray-500 text-sm">

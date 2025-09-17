@@ -131,7 +131,7 @@ export default function UploadVideo() {
   };
 
   return (
-    <div className="h-[80vh] flex justify-center items-center">
+    <div className="h-full px-6 py-12 flex justify-center items-center bg-gradient-to-br from-gray-50 to-gray-200">
       {/* Form for video upload */}
       <form
         className="max-w-md w-full bg-white p-6 rounded-lg shadow-md"
@@ -182,14 +182,14 @@ export default function UploadVideo() {
           <label className="block mb-2 text-sm font-medium text-gray-900">
             Tags
           </label>
-          <div className="flex gap-2">
+          <div className="flex gap-2 w-full">
             {/* Tag 1 */}
             <input
               type="text"
               placeholder="Tag 1"
               value={tag1}
               onChange={(e) => setTag1(e.target.value)}
-              className="flex-1 border rounded-lg p-2.5 text-sm"
+              className="flex-1 border w-1/2 rounded-lg p-2.5 text-sm"
               disabled={isUploading}
             />
             {/* Tag 2 */}
@@ -198,7 +198,7 @@ export default function UploadVideo() {
               placeholder="Tag 2"
               value={tag2}
               onChange={(e) => setTag2(e.target.value)}
-              className="flex-1 border rounded-lg p-2.5 text-sm"
+              className="flex-1 w-1/2 border rounded-lg p-2.5 text-sm"
               disabled={isUploading}
             />
           </div>

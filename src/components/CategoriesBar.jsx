@@ -51,7 +51,7 @@ export default function CategoriesBar({ onSelectCategory }) {
             className={`px-4 sm:px-5 py-2 rounded-full text-sm sm:text-base font-medium whitespace-nowrap transition-all duration-200
               ${
                 selected === cat
-                  ? "bg-blue-600 text-white shadow-md "
+                  ? "bg-[#0f0f0f] text-white shadow-md "
                   : "bg-gray-200 text-gray-800 hover:bg-gray-300"
               }`}
           >

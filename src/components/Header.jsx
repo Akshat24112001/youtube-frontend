@@ -119,12 +119,12 @@ export default function Header({ sidebar }) {
 
   return (
     <>
-      <nav className="flex justify-between items-center px-4 py-3 bg-black text-white fixed top-0 left-0 w-full z-40 shadow-md">
+      <nav className="flex justify-between items-center px-4 py-3 bg-[#ffffff] text-[#0f0f0f] fixed top-0 left-0 w-full z-40 shadow-md">
         {/* Left Section */}
         <div className="flex items-center gap-4">
           {/* for toggling sidebar */}
           <button
-            className="hidden sm:block hover:bg-gray-800 p-2 rounded-full transition"
+            className="hidden sm:block hover:bg-[#f2f2f2] p-2 rounded-full transition"
             onClick={() => sidebar.setToggleSidebar(!sidebar.toggleSidebar)}
           >
             <GiHamburgerMenu className="text-xl" />
@@ -134,23 +134,23 @@ export default function Header({ sidebar }) {
             className="flex items-center gap-1 cursor-pointer"
             onClick={() => navigate("/")}
           >
-            <FaYoutube className="text-blue-500 text-3xl" />
+            <FaYoutube className="text-[#fe0033] text-3xl" />
             <span className="text-xl font-bold tracking-wide">PlayNest</span>
           </div>
         </div>
 
         {/* Search Bar (centered) for desktop */}
         <div className="hidden sm:flex absolute left-1/2 transform -translate-x-1/2 w-1/2 max-w-xl">
-          <div className="flex items-center w-full rounded-full border border-gray-700 bg-gray-900 focus-within:border-blue-500 relative">
+          <div className="flex items-center w-full rounded-full border border-gray-500 bg-[#f2f2f2] focus-within:border-blue-500 relative">
             {/* search input */}
             <input
               type="text"
               placeholder="Search"
               value={localSearch}
               onChange={(e) => setLocalSearch(e.target.value)}
-              className="text-sm sm:text-base bg-transparent outline-none px-4 py-2 w-full text-gray-200 placeholder-gray-500 pr-10"
+              className="text-sm sm:text-base bg-transparent outline-none px-4 py-2 w-full text-[#0f0f0f] placeholder-gray-500 pr-10"
             />
-            <button className="absolute right-3 text-gray-400 hover:text-white">
+            <button className="absolute right-3 text-[#0f0f0f]">
               <CiSearch className="text-xl" />
             </button>
           </div>
@@ -201,7 +201,7 @@ export default function Header({ sidebar }) {
             // Sign Up button
             <Link
               to="/signup"
-              className="flex items-center gap-1 px-3 py-2 text-sm sm:text-base rounded-full bg-gradient-to-r from-blue-500 to-blue-700 hover:opacity-90 transition"
+              className="flex items-center gap-1 px-3 py-2 text-sm sm:text-base rounded-full bg-gradient-to-r text-[#ffffff] from-blue-500 to-blue-700 hover:opacity-90 transition"
             >
               <CgProfile className="text-lg sm:text-2xl" />
               <span>Sign Up</span>
@@ -222,7 +222,7 @@ export default function Header({ sidebar }) {
                   />
                 ) : (
                   // in case channel avatar is not present
-                  <span className="text-white font-bold">
+                  <span className="text-[#ffffff] font-bold">
                     {username?.charAt(0).toUpperCase()}
                   </span>
                 )}
@@ -230,7 +230,7 @@ export default function Header({ sidebar }) {
 
               {/* Dropdown menu */}
               <ul
-                className={`absolute top-12 right-0 bg-gray-900 border border-gray-700 rounded-lg shadow-lg text-sm w-44 transform transition-all duration-300 ${
+                className={`absolute top-12 right-0 p-1.5 bg-[#f2f2f2] border border-gray-400 rounded-lg shadow-lg text-sm w-44 transform transition-all duration-300 ${
                   dropdownOpen
                     ? "scale-100 opacity-100"
                     : "scale-95 opacity-0 pointer-events-none"
@@ -238,11 +238,11 @@ export default function Header({ sidebar }) {
                 onMouseEnter={() => setHovering(true)}
                 onMouseLeave={() => setHovering(false)}
               >
-                <li className="px-4 py-2 text-gray-400 italic">
+                <li className="px-2.5 py-2 text-gray-400 italic">
                   Welcome, {username}
                 </li>
                 <li
-                  className="px-4 py-2 hover:bg-blue-600 cursor-pointer rounded-t-md"
+                  className="px-2.5 py-2 hover:bg-[#e2dfdf] cursor-pointer rounded-xl"
                   onClick={() => {
                     setdropdownOpen(false);
                     navigate("/createChannel");
@@ -251,7 +251,7 @@ export default function Header({ sidebar }) {
                   Your Channel
                 </li>
                 <li
-                  className="px-4 py-2 hover:bg-blue-600 cursor-pointer"
+                  className="px-2.5 py-2 hover:bg-[#e2dfdf] cursor-pointer rounded-xl"
                   onClick={() => {
                     setdropdownOpen(false);
                     navigate("/upload");
@@ -260,7 +260,7 @@ export default function Header({ sidebar }) {
                   Upload Video
                 </li>
                 <li
-                  className="px-4 py-2 hover:bg-red-600 cursor-pointer rounded-b-md"
+                  className="px-2.5 py-2 hover:bg-[#e2dfdf] cursor-pointer rounded-xl"
                   onClick={() => {
                     setdropdownOpen(false);
                     handleLogout();

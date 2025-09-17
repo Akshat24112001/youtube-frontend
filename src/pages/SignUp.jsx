@@ -77,11 +77,11 @@ export default function SignUp() {
 
   return (
     <div className="flex h-full items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200 px-6 py-12">
-      <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
+      <div className="w-full max-w-md rounded-2xl bg-white p-4 shadow-xl">
         {/* Logo and Heading */}
         <div className="flex flex-col items-center">
-          <FaYoutube className="h-16 w-16 text-blue-500 animate-pulse drop-shadow-md" />
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <FaYoutube className="h-12 w-12 text-[#fe0033] drop-shadow-md" />
+          <h2 className="mt-6 text-center text-2xl font-bold text-gray-900">
             Create Your Account
           </h2>
           <p className="mt-2 text-sm text-gray-500">

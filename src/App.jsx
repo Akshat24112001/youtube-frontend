@@ -33,7 +33,7 @@ function App() {
         </div>
 
         {/* Main Content */}
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 mb-10 sm:mb-0 overflow-y-auto">
           <Suspense fallback={<Loading />}>
             <Outlet />
           </Suspense>

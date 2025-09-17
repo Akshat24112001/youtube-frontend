@@ -28,7 +28,7 @@ export default function SideBar({ sidebar }) {
   return (
     <>
       <div
-        className={`hidden sm:block transition-all duration-500 ease-in-out bg-black text-white h-screen text-lg fixed top-0 left-0 z-30 shadow-lg ${
+        className={`hidden sm:block transition-all duration-500 ease-in-out bg-[#ffffff] text-[#0f0f0f] h-screen text-lg fixed top-0 left-0 z-30 shadow-lg ${
           sidebar.toggleSidebar ? "w-16" : "w-72"
         }`}
       >
@@ -45,8 +45,8 @@ export default function SideBar({ sidebar }) {
                       : "px-4 py-3"
                   } ${
                     isActive
-                      ? "bg-gray-800 font-semibold text-blue-500"
-                      : "hover:bg-gray-800 text-gray-300"
+                      ? "bg-[#f2f2f2] font-semibold text-[#0f0f0f]"
+                      : "hover:bg-[#e2dfdf] text-[#0f0f0f]"
                   }`}
                 >
                   <HiHome className="text-2xl" />
@@ -67,8 +67,8 @@ export default function SideBar({ sidebar }) {
                       : "px-4 py-3"
                   } ${
                     isActive && channelLink !== "/login"
-                      ? "bg-gray-800 font-semibold text-blue-500"
-                      : "hover:bg-gray-800 text-gray-300"
+                      ? "bg-[#f2f2f2] font-semibold text-[#0f0f0f]"
+                      : "hover:bg-[#e2dfdf] text-[#0f0f0f]"
                   }`}
                 >
                   <CgProfile className="text-2xl" />
@@ -91,8 +91,8 @@ export default function SideBar({ sidebar }) {
                     isActive &&
                     uploadLink !== "/login" &&
                     uploadLink !== "/createChannel"
-                      ? "bg-gray-800 font-semibold text-blue-500"
-                      : "hover:bg-gray-800 text-gray-300"
+                      ? "bg-[#f2f2f2] font-semibold text-[#0f0f0f]"
+                      : "hover:bg-[#e2dfdf] text-[#0f0f0f]"
                   }`}
                 >
                   <FiUpload className="text-2xl" />
@@ -107,12 +107,12 @@ export default function SideBar({ sidebar }) {
       </div>
 
       {/* Mobile Bottom Navigation */}
-      <div className="sm:hidden fixed bottom-0 left-0 w-full bg-black text-white flex justify-around items-center py-2 z-40 border-t border-gray-800">
+      <div className="sm:hidden fixed bottom-0 left-0 w-full bg-[#ffffff] text-[#0f0f0f] flex justify-around items-center py-2 z-40 border-t border-gray-800">
         <NavLink
           to="/"
           className={({ isActive }) =>
             `flex flex-col items-center ${
-              isActive ? "text-blue-500" : "text-gray-300"
+              isActive ? "text-[#0f0f0f]" : "text-[#696868]"
             }`
           }
         >
@@ -125,8 +125,7 @@ export default function SideBar({ sidebar }) {
           className={({ isActive }) =>
             `flex flex-col items-center ${
               isActive && channelLink !== "/login"
-                ? "text-blue-500"
-                : "text-gray-300"
+                ? "text-[#0f0f0f]" : "text-[#696868]"
             }`
           }
         >
@@ -141,8 +140,7 @@ export default function SideBar({ sidebar }) {
               isActive &&
               uploadLink !== "/login" &&
               uploadLink !== "/createChannel"
-                ? "text-blue-500"
-                : "text-gray-300"
+                ? "text-[#0f0f0f]" : "text-[#696868]"
             }`
           }
         >

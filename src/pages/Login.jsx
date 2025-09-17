@@ -76,8 +76,8 @@ export default function Login() {
       <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
         {/* Logo */}
         <div className="flex flex-col items-center">
-          <FaYoutube className="h-16 w-16 text-blue-500 animate-pulse drop-shadow-md" />
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <FaYoutube className="h-12 w-12 text-[#fe0033] drop-shadow-md" />
+          <h2 className="mt-6 text-center text-2xl font-bold text-gray-900">
             Welcome Back
           </h2>
           <p className="mt-2 text-sm text-gray-500">Please login to continue</p>

@@ -80,7 +80,7 @@ createRoot(document.getElementById("root")).render(
       <RouterProvider router={router} />
     </Provider>
     <ToastContainer
-      position="top-right"
+      position="bottom-right"
       autoClose={2000}
       hideProgressBar={false}
       newestOnTop={false}
@@ -88,7 +88,7 @@ createRoot(document.getElementById("root")).render(
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      theme="dark"
+      theme="light"
     />
   </StrictMode>
 );

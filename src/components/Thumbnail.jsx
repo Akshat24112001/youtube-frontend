@@ -64,7 +64,7 @@ export default function Thumbnail({ video }) {
             )}
           </div>
           <div className="flex flex-col">
-            <h2 className="font-semibold truncate text-sm sm:text-base line-clamp-2">
+            <h2 className="font-semibold text-sm sm:text-base line-clamp-2 overflow-hidden text-ellipsis break-words">
               {video?.title}
             </h2>
             <p className="text-gray-400 truncate text-sm">

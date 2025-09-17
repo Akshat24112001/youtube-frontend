@@ -91,7 +91,7 @@ navigate(`/channel/${res.data.channel._id}`);
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[80vh] px-4">
+    <div className="h-full px-6 py-12 flex justify-center items-center bg-gradient-to-br from-gray-50 to-gray-200">
       <form
         className="bg-white w-full max-w-lg p-6 rounded-2xl shadow-md"
         onSubmit={handleSubmit}
