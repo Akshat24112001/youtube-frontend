@@ -94,7 +94,7 @@ export default function Video() {
           controls
           autoPlay
           muted
-          className="w-full max-w-7xl rounded-lg shadow-xl aspect-video"
+          className="w-full max-w-4xl shadow-xl aspect-video"
           src={videoDetail.videoUrl}
         >
           Your browser does not support the video tag.
